@@ -7,10 +7,24 @@ from receipts.forms import ReceiptForm
 
 
 @login_required
-def list_receipt(request):
+def receipt_list(request):
     receipt_list = Receipt.objects.filter(purchaser=request.user)
     context = {"Receipt": receipt_list}
-    return render(request, "receipts/detail.html", context)
+    return render(request, "receipts/list.html", context)
+
+
+@login_required
+def account_list(request):
+    account_list = Account.objects.filter(owner=request.user)
+    context = {"Accounts": account_list}
+    return render(request, "accounts/list.html", context)
+
+
+@login_required
+def category_list(request):
+    category_list = ExpenseCategory.objects.filter(owner=request.user)
+    context = {"Categories": category_list}
+    return render(request, "categories/list.html", context)
 
 
 @login_required
