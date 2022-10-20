@@ -7,6 +7,13 @@
     <title>Document</title>
 </head>
 <body>
+    <nav>
+        <a href="{% url 'home' %}">Main page</a>
+       {% if  user.is_authenticated %}
+        Hello, {{user.username}}
+        <a href ="{% url 'login' %}"> Login</a>
+        {% endif %}
+    <nav>
     <main>
     <h1> My Receipts</h1>
         <table>
@@ -23,12 +30,12 @@
         <tbody>
             <tr>
                 {% for rep in Receipt %}
-                <td>{{rep.vendor}}</td>
-                <td>{{rep.total}}</td>
-                <td>{{rep.tax}}</td>
-                <td>{{rep.date}}</td>
-                <td>{{rep.category}}</td>
-                <td>{{rep.account}}</td>
+                <td>{{ rep.vendor }}</td>
+                <td>{{ rep.total }}</td>
+                <td>{{ rep.tax }}</td>
+                <td>{{ rep.date|date:"n/j/y" }}</td>
+                <td>{{ rep.category }}</td>
+                <td>{{ rep.account }}</td>
                 {% endfor %}
             </tr>
         </tbody>
