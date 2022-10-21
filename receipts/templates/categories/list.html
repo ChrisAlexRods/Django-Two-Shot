@@ -7,24 +7,39 @@
         <title>Create</title>
     </head>
     <body>
-        <main>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Number of receipts</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        {% for category in Categories %}
-                            <td>{{ category.name }}</td>
-                            <td>{{ category.number }}</td>
-                            <td>{{ category.owner }}</td>
-                        {% endfor %}
-                    </tr>
-                </tbody>
-            </table>
-        </main>
-    </body>
-</html>
+        <header>
+            <nav>
+                <li>
+                    <a href="{% url 'create_category' %}">Create Category</a>
+                </li>
+                <li>
+                    <a href="{% url 'create_account' %}">Create Accounts</a>
+                </li>
+                <li>
+                    <a href="{% url 'account_list' %}">Create Category</a>
+                </li>
+                <li>
+                    <a href="{% url 'category_list' %}">Create Category</a>
+                </li>
+            </nav>
+            <main>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Number of receipts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            {% for category in Categories %}
+                                <td>{{ category.name }}</td>
+                                <td>{{ category.number }}</td>
+                                <td>{{ category.owner }}</td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </main>
+        </body>
+    </html>

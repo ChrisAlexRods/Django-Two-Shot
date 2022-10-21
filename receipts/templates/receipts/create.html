@@ -7,6 +7,22 @@
         <title>Create</title>
     </head>
     <body>
+        <header>
+            <nav>
+                <li>
+                    <a href="{% url 'create_category' %}">Create Category</a>
+                </li>
+                <li>
+                    <a href="{% url 'create_account' %}">Create Accounts</a>
+                </li>
+                <li>
+                    <a href="{% url 'account_list' %}">View Accounts</a>
+                </li>
+                <li>
+                    <a href="{% url 'category_list' %}">View Categories</a>
+                </li>
+            </nav>
+        </header>
         <main>
             <div>
                 <form method="post">
